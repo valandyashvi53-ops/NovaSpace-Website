@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaSpace - Contact</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            width: 100%;
+            background: #111827;
+
+            padding: 18px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            gap: 30px;
+        }
+
+
+        nav ul li a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 500;
+
+            transition: 0.3s;
+        }
+
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #38bdf8;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            min-height: 50vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background:
+
+                linear-gradient(
+                    rgba(15, 23, 42, 0.75),
+                    rgba(15, 23, 42, 0.75)
+                ),
+
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=90");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        .hero-content {
+            max-width: 850px;
+            color: white;
+        }
+
+
+        .hero-content h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+
+        .hero-content h1 span {
+            color: #38bdf8;
+        }
+
+
+        .hero-content p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #e5e7eb;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            padding: 80px 7%;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        .section-title h2 {
+
+            font-size: 40px;
+
+            color: #111827;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-title p {
+
+            color: #64748b;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= CONTACT CONTAINER ================= */
+
+        .contact-container {
+
+            margin-top: 50px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1.2fr;
+
+            gap: 40px;
+
+            max-width: 1100px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* ================= CONTACT INFO ================= */
+
+        .contact-info {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 40px;
+
+            border-radius: 15px;
+        }
+
+
+        .contact-info h3 {
+
+            font-size: 28px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .contact-info > p {
+
+            color: #cbd5e1;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+
+        .info-box {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .info-icon {
+
+            min-width: 48px;
+
+            height: 48px;
+
+            border-radius: 50%;
+
+            background: #38bdf8;
+
+            color: #0f172a;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 21px;
+        }
+
+
+        .info-box h4 {
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .info-box p {
+
+            color: #cbd5e1;
+
+            line-height: 1.5;
+
+            font-size: 15px;
+        }
+
+
+        /* ================= CONTACT FORM ================= */
+
+        .contact-form {
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.08);
+        }
+
+
+        .contact-form h3 {
+
+            font-size: 28px;
+
+            color: #111827;
+
+            margin-bottom: 25px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #334155;
+
+            font-weight: bold;
+
+            font-size: 15px;
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            font-family: Arial, sans-serif;
+
+            transition: 0.3s;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+
+            border-color: #0284c7;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(56, 189, 248, 0.15);
+        }
+
+
+        .form-group textarea {
+
+            height: 140px;
+
+            resize: vertical;
+        }
+
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #0284c7;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .submit-btn:hover {
+
+            background: #0369a1;
+        }
+
+
+        /* ================= MAP / LOCATION ================= */
+
+        .location {
+
+            padding: 70px 7%;
+
+            background: #e0f2fe;
+
+            text-align: center;
+        }
+
+
+        .location h2 {
+
+            font-size: 40px;
+
+            color: #0f172a;
+
+            margin-bottom: 15px;
+        }
+
+
+        .location p {
+
+            color: #475569;
+
+            font-size: 17px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .location-box {
+
+            max-width: 1100px;
+
+            height: 300px;
+
+            margin: auto;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            background:
+
+                linear-gradient(
+                    rgba(15, 23, 42, 0.65),
+                    rgba(15, 23, 42, 0.65)
+                ),
+
+                url("https://images.unsplash.com/photo-1524666041070-9e7e9c9c9b2a?auto=format&fit=crop&w=1600&q=90");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .location-content {
+
+            color: white;
+        }
+
+
+        .location-content h3 {
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .location-content p {
+
+            color: #e5e7eb;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #020617;
+
+            color: #cbd5e1;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+
+        footer span {
+
+            color: #38bdf8;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .contact-container {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 45px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 38px;
+            }
+
+
+            .section-title h2,
+            .location h2 {
+
+                font-size: 32px;
+            }
+
+
+            .contact-info,
+            .contact-form {
+
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            Nova<span>Space</span>
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html" class="active">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+
+                Contact <span>Us</span>
+
+            </h1>
+
+
+            <p>
+
+                Have a question, project idea or something
+                you'd like to discuss? We'd love to hear from you.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact">
+
+
+        <div class="section-title">
+
+            <h2>
+                Get In Touch
+            </h2>
+
+
+            <p>
+
+                Send us a message and our team will get back
+                to you as soon as possible.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="contact-container">
+
+
+            <!-- ================= CONTACT INFORMATION ================= -->
+
+            <div class="contact-info">
+
+                <h3>
+                    Let's Talk
+                </h3>
+
+
+                <p>
+
+                    Whether you have a question, need help with
+                    a project, or simply want to say hello,
+                    feel free to contact us.
+
+                </p>
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+                        📍
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            Address
+                        </h4>
+
+                        <p>
+                            Ahmedabad, Gujarat, India
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+                        📧
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            Email
+                        </h4>
+
+                        <p>
+                            hello@novaspace.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+                        📞
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            Phone
+                        </h4>
+
+                        <p>
+                            +91 98765 43210
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+                        🕐
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            Working Hours
+                        </h4>
+
+                        <p>
+                            Monday - Friday<br>
+                            9:00 AM - 6:00 PM
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= CONTACT FORM ================= -->
+
+            <div class="contact-form">
+
+                <h3>
+                    Send a Message
+                </h3>
+
+
+                <form>
+
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="Enter subject"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        Send Message
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= LOCATION ================= -->
+
+    <section class="location">
+
+        <h2>
+            Find Us
+        </h2>
+
+
+        <p>
+            We are always ready to connect and discuss
+            your next project.
+        </p>
+
+
+        <div class="location-box">
+
+            <div class="location-content">
+
+                <h3>
+                    NovaSpace
+                </h3>
+
+                <p>
+                    Ahmedabad, Gujarat, India
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026
+            <span>NovaSpace</span>.
+            All Rights Reserved.
+
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
