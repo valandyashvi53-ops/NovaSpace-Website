@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaSpace - Services</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            width: 100%;
+            background: #111827;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #38bdf8;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(rgba(15, 23, 42, 0.75),
+                rgba(15, 23, 42, 0.75)),
+                url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1920&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-content p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #e5e7eb;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services {
+            padding: 80px 7%;
+            text-align: center;
+        }
+
+        .section-title {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .section-title p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .service-container {
+            margin-top: 50px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #e0f2fe;
+            color: #0284c7;
+
+            font-size: 32px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .service-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* ================= PROCESS ================= */
+
+        .process {
+            padding: 80px 7%;
+            background: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        .process h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .process > p {
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        .process-container {
+            margin-top: 50px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .process-box {
+            padding: 30px 20px;
+            border: 1px solid #334155;
+            border-radius: 12px;
+        }
+
+        .number {
+            width: 50px;
+            height: 50px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #38bdf8;
+            color: #0f172a;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .process-box h3 {
+            margin-bottom: 12px;
+        }
+
+        .process-box p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 80px 20px;
+            text-align: center;
+            background: #e0f2fe;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #475569;
+            margin-bottom: 30px;
+            font-size: 17px;
+        }
+
+        .cta a {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: #0284c7;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .cta a:hover {
+            background: #0369a1;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #020617;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .service-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content h1 {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .process-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .section-title h2,
+            .process h2,
+            .cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            Nova<span>Space</span>
+        </div>
+
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li>
+                <a href="services.html" class="active">Services</a>
+            </li>
+
+            <li>
+                <a href="gallery.html">Gallery</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Our <span>Services</span>
+            </h1>
+
+            <p>
+                We create modern, creative and professional digital
+                experiences designed to help businesses grow and
+                build a strong online presence.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services">
+
+        <div class="section-title">
+
+            <h2>
+                What We Offer
+            </h2>
+
+            <p>
+                Explore our range of creative and technology-focused
+                services designed to transform ideas into powerful
+                digital experiences.
+            </p>
+
+        </div>
+
+
+        <div class="service-container">
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    We build modern, responsive and user-friendly
+                    websites that work smoothly across desktop,
+                    tablet and mobile devices.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    UI / UX Design
+                </h3>
+
+                <p>
+                    We design clean and attractive user interfaces
+                    focused on usability, accessibility and a
+                    better overall user experience.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Digital Solutions
+                </h3>
+
+                <p>
+                    We provide innovative digital solutions that
+                    help businesses improve their online presence
+                    and reach their goals.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Responsive Design
+                </h3>
+
+                <p>
+                    Our websites are designed to provide a smooth
+                    experience on smartphones, tablets, laptops
+                    and large desktop screens.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Performance
+                </h3>
+
+                <p>
+                    We focus on creating fast-loading and optimized
+                    websites for a smooth and efficient browsing
+                    experience.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🔧
+                </div>
+
+                <h3>
+                    Website Support
+                </h3>
+
+                <p>
+                    We help maintain and improve websites with
+                    updates, improvements and technical support
+                    whenever required.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROCESS ================= -->
+
+    <section class="process">
+
+        <h2>
+            How We Work
+        </h2>
+
+        <p>
+            Our simple process helps turn an idea into a complete
+            digital experience.
+        </p>
+
+
+        <div class="process-container">
+
+            <div class="process-box">
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    Discover
+                </h3>
+
+                <p>
+                    We understand your requirements, goals and
+                    project expectations.
+                </p>
+
+            </div>
+
+
+            <div class="process-box">
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    Plan
+                </h3>
+
+                <p>
+                    We create a clear structure and plan for the
+                    project before development begins.
+                </p>
+
+            </div>
+
+
+            <div class="process-box">
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    Create
+                </h3>
+
+                <p>
+                    We design and develop the website using modern
+                    web technologies.
+                </p>
+
+            </div>
+
+
+            <div class="process-box">
+
+                <div class="number">
+                    04
+                </div>
+
+                <h3>
+                    Launch
+                </h3>
+
+                <p>
+                    After testing and final improvements, the
+                    completed project is ready to go live.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <h2>
+            Have a Project in Mind?
+        </h2>
+
+        <p>
+            Let's turn your idea into a modern digital experience.
+        </p>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>NovaSpace</span>. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
