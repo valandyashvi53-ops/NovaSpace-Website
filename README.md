@@ -244,14 +244,6 @@ Future versions of NovaSpace may include:
 
 ---
 
-## 👨‍💻 Author
-
-**Your Name**
-
-GitHub: `https://github.com/your-username`
-
----
-
 ## 📄 License
 
 This project is created for **educational and project purposes**.
