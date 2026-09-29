@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaSpace - Gallery</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            width: 100%;
+            background: #111827;
+            padding: 18px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 500;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #38bdf8;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 50vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(15, 23, 42, 0.75),
+                    rgba(15, 23, 42, 0.75)
+                ),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-content p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #e5e7eb;
+        }
+
+
+        /* ================= GALLERY ================= */
+
+        .gallery {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #64748b;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+
+        /* ================= GALLERY GRID ================= */
+
+        .gallery-container {
+            margin-top: 50px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .gallery-item {
+            position: relative;
+
+            height: 320px;
+
+            overflow: hidden;
+
+            border-radius: 15px;
+
+            background: #ddd;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.10);
+
+            cursor: pointer;
+        }
+
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+
+        /* ================= IMAGE OVERLAY ================= */
+
+        .overlay {
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+
+            padding: 30px 20px 20px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0, 0, 0, 0.85)
+                );
+
+            color: white;
+
+            transform: translateY(10px);
+
+            opacity: 0;
+
+            transition: 0.4s;
+        }
+
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        .overlay h3 {
+            font-size: 22px;
+            margin-bottom: 7px;
+        }
+
+
+        .overlay p {
+            font-size: 14px;
+            color: #e5e7eb;
+        }
+
+
+        /* ================= FEATURED IMAGE ================= */
+
+        .featured {
+            grid-column: span 2;
+        }
+
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 80px 20px;
+
+            text-align: center;
+
+            background: #e0f2fe;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+
+            color: #0f172a;
+
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #475569;
+
+            font-size: 17px;
+
+            margin-bottom: 30px;
+        }
+
+        .cta a {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: #0284c7;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .cta a:hover {
+            background: #0369a1;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #020617;
+
+            color: #cbd5e1;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured {
+                grid-column: span 2;
+            }
+
+            .hero-content h1 {
+                font-size: 45px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured {
+                grid-column: span 1;
+            }
+
+            .gallery-item {
+                height: 280px;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .section-title h2,
+            .cta h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            Nova<span>Space</span>
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="gallery.html" class="active">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Our <span>Gallery</span>
+            </h1>
+
+            <p>
+                Explore our collection of modern spaces,
+                creative designs and inspiring digital
+                experiences.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= GALLERY ================= -->
+
+    <section class="gallery">
+
+
+        <div class="section-title">
+
+            <h2>
+                Explore Our Work
+            </h2>
+
+            <p>
+                A collection of beautiful spaces and creative
+                ideas that represent the vision and style of
+                NovaSpace.
+            </p>
+
+        </div>
+
+
+
+        <div class="gallery-container">
+
+
+            <!-- IMAGE 1 -->
+
+            <div class="gallery-item featured">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=90"
+                    alt="Modern Office"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        Modern Workspace
+                    </h3>
+
+                    <p>
+                        Clean and inspiring workspace design.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IMAGE 2 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=90"
+                    alt="Creative Office"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        Creative Office
+                    </h3>
+
+                    <p>
+                        A creative environment for modern teams.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IMAGE 3 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=90"
+                    alt="Interior Design"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        Interior Design
+                    </h3>
+
+                    <p>
+                        Elegant and professional interior design.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IMAGE 4 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1200&q=90"
+                    alt="Office Interior"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        Smart Workspace
+                    </h3>
+
+                    <p>
+                        Designed for productivity and comfort.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IMAGE 5 -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=1200&q=90"
+                    alt="Modern Workspace"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        Modern Workspace
+                    </h3>
+
+                    <p>
+                        Minimal design with a modern atmosphere.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IMAGE 6 -->
+
+            <div class="gallery-item featured">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366811360-2a9b4f7c3f1d?auto=format&fit=crop&w=1600&q=90"
+                    alt="Modern Interior"
+                >
+
+                <div class="overlay">
+
+                    <h3>
+                        Premium Interior
+                    </h3>
+
+                    <p>
+                        A premium space created with modern ideas.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <h2>
+            Ready to Create Something Amazing?
+        </h2>
+
+        <p>
+            Let's build your next digital experience together.
+        </p>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <span>NovaSpace</span>.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
