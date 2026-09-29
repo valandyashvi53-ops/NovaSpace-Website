@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | NovaSpace</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* HEADER */
+        .header {
+            width: 100%;
+            padding: 20px 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .logo span {
+            color: #2563eb;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #2563eb;
+        }
+
+        /* HERO */
+        .about-hero {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-hero-content {
+            color: white;
+            max-width: 800px;
+        }
+
+        .about-hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: white;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .about-content h2 span {
+            color: #2563eb;
+        }
+
+        .about-content p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 80px 8%;
+            text-align: center;
+            background: #f5f7fb;
+        }
+
+        .features h2 {
+            font-size: 40px;
+            margin-bottom: 45px;
+            color: #111827;
+        }
+
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-card .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 70px 20px;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 14px 30px;
+            background: white;
+            color: #2563eb;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta a:hover {
+            background: #111827;
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            .header {
+                padding: 20px 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .navbar {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .about-section {
+                flex-direction: column;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .about-hero h1 {
+                font-size: 40px;
+            }
+
+            .about-hero p {
+                font-size: 16px;
+            }
+
+            .about-content h2,
+            .features h2 {
+                font-size: 32px;
+            }
+
+            .navbar a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            Nova<span>Space</span>
+        </div>
+
+        <nav class="navbar">
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html" class="active">About</a>
+
+            <a href="services.html">Services</a>
+
+            <a href="gallery.html">Gallery</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="about-hero">
+
+        <div class="about-hero-content">
+
+            <h1>About NovaSpace</h1>
+
+            <p>
+                We create modern, creative and innovative digital
+                experiences that help businesses grow and succeed.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about-section">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=90"
+                alt="NovaSpace Office"
+            >
+
+        </div>
+
+
+        <div class="about-content">
+
+            <h2>Welcome to <span>NovaSpace</span></h2>
+
+            <p>
+                NovaSpace is a modern digital platform focused on
+                creating beautiful, professional and user-friendly
+                websites.
+            </p>
+
+            <p>
+                Our goal is to combine creative design with modern
+                technology to build digital experiences that are
+                simple, fast and effective.
+            </p>
+
+            <p>
+                We believe that every idea deserves a unique digital
+                space where creativity and technology work together.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features">
+
+        <h2>Why Choose NovaSpace?</h2>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+
+                <div class="icon">💡</div>
+
+                <h3>Creative Ideas</h3>
+
+                <p>
+                    We transform creative ideas into attractive
+                    and meaningful digital experiences.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">🚀</div>
+
+                <h3>Modern Technology</h3>
+
+                <p>
+                    We use modern web technologies to create
+                    fast and responsive websites.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">🎯</div>
+
+                <h3>Professional Quality</h3>
+
+                <p>
+                    Our focus is on clean design, usability and
+                    professional-quality results.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+        <h2>Let's Build Something Amazing</h2>
+
+        <p>
+            Have an idea? Let's turn it into a beautiful digital experience.
+        </p>
+
+        <a href="contact.html">Contact Us</a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 NovaSpace. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
